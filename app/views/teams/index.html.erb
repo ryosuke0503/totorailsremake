@@ -1,0 +1,27 @@
+<h1>チーム一覧</h1>
+<thead>
+<tr>
+  <th>チーム名</th>
+</tr>
+</thead>
+<table border="1">
+<tr>
+<th>id</th>
+<th>team</th>
+</tr>
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.id %></td>
+        <td><%= team.name %></td>
+        <td><%= link_to '編集', edit_team_path(team) %></td>
+        <td><%= link_to '削除', team_path(team), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '追加', new_team_path %>
+<%= form_tag import_teams_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "インポート" %>
+<% end %>

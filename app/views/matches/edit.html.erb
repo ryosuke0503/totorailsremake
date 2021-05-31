@@ -1,0 +1,29 @@
+<h1>試合編集</h1>
+<%= form_for(@match) do |f| %>
+    <div><%= f.label :year %></div>
+    <div><%= f.text_field :year %></div>
+    <div><%= f.label :league %></div>
+    <div><%= f.text_field :league %></div>
+    <div><%= f.label :kind %></div>
+    <div><%= f.text_field :kind %></div>
+    <div><%= f.label :date %></div>
+    <div><%= f.text_field :date %></div>
+    <div><%= f.label :time %></div>
+    <div><%= f.text_field :time %></div>
+    <div><%= f.label :home %></div>
+    <div><%= f.text_field :home %></div>
+    <div><%= f.label :homescore %></div>
+    <div><%= f.text_field :homescore %></div>
+    <div><%= f.label :awayscore %></div>
+    <div><%= f.text_field :awayscore %></div>
+    <div><%= f.label :away %></div>
+    <div><%= f.text_field :away %></div>
+    <div><%= f.label :stadium %></div>
+    <div><%= f.text_field :stadium %></div>
+    <div><%= f.label :viewers %></div>
+    <div><%= f.text_field :viewers %></div>
+    <div><%= f.label :broadcasts %></div>
+    <div><%= f.text_field :broadcasts %></div>
+    <div><%= f.submit %></div>
+<% end %>
+<%= link_to '戻る', matches_path %>

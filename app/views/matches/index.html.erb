@@ -1,0 +1,49 @@
+<h1>試合結果一覧</h1>
+<thead>
+<tr>
+  <th>試合結果</th>
+</tr>
+</thead>
+<table border="1">
+  <tbody>
+  <tr>
+  <th>id</th>
+  <th>year</th>
+  <th>league</th>
+  <th>kind</th>
+  <th>date</th>
+  <th>time</th>
+  <th>home</th>
+  <th>homescore</th>
+  <th>awayscore</th>
+  <th>away</th>
+  <th>stadium</th>
+  <th>viewers</th>
+  <th>broadcasts</th>
+  </tr>
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= match.id %></td>
+        <td><%= match.year %></td>
+        <td><%= match.league %></td>
+        <td><%= match.kind %></td>
+        <td><%= match.date %></td>
+        <td><%= match.time %></td>
+        <td><%= match.home %></td>
+        <td><%= match.homescore %></td>
+        <td><%= match.awayscore %></td>
+        <td><%= match.away %></td>
+        <td><%= match.stadium %></td>
+        <td><%= match.viewers %></td>
+        <td><%= match.broadcasts %></td>
+        <td><%= link_to '編集', edit_match_path(match) %></td>
+        <td><%= link_to '削除', match_path(match), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '追加', new_match_path %>
+<%= form_tag import_matches_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "インポート" %>
+<% end %>
